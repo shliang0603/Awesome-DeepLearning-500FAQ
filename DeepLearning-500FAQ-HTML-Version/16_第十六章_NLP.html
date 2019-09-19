@@ -1,0 +1,1017 @@
+<!DOCTYPE html><html lang="en"><head>
+<title> 第十六章_NLP</title>
+  <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="()">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/svg-with-js.css" crossorigin="anonymous">
+<style type="text/css">
+.xsj_hr:after,kbd{display:inline-block}body h1,p{line-height:1.6}body,kbd{color:#2f2f2f}img,kbd{vertical-align:middle}body,pre{word-break:break-word;word-wrap:break-word}html{font-size:62.5%}body{font-family:'Helvetica Neue',Helvetica,Tahoma,Arial,'Hiragino Sans GB',STHeiti,"Microsoft YaHei","微软雅黑",'WenQuanYi Micro Hei',STXihei,"华文细黑",Heiti,"黑体",SimSun,"宋体",Song,sans-serif;font-size:1.4rem;line-height:1.33;font-weight:100;letter-spacing:0;word-spacing:.25em;background:linear-gradient(to bottom,#B721FF,#2AF598,#fec051,#FEE140,#FA709A);background-size:100%;background-repeat:no-repeat;margin:0}body:before{content:'';position:fixed;top:0;bottom:0;width:100%;z-index:-1;background:linear-gradient(to right bottom,rgba(255,255,255,.2),#21D4FD 75%)}.li_linenum,.xiaoshujiang_code.hljs.code_linenums,.xsj_hr:after,code.hljs.code_linenums{position:relative}a:focus{outline:#ff7f0e dotted thin;outline:-webkit-focus-ring-color auto 5px;outline-offset:-2px}a:active,a:hover{outline:0}a{color:#ff7f0e;text-decoration:none}a:hover{text-decoration:underline}h1,h2,h3,h4,h5,h6{margin:1em 0 .6em;font-family:inherit;font-weight:500;line-height:2.35rem;color:#2ca02c;text-rendering:optimizelegibility}.mermaid_svg,.xiaoshujiang_pre,pre{font-family:monospace}.table th,.tag.label,a.attachment .filename,dt,strong{font-weight:700}h1{font-size:3.4rem}h2{font-size:3rem}h3{font-size:2.45rem}h4{font-size:2.1rem}h5{font-size:1.9rem}h6{font-size:1.5rem}body h2,body h3{line-height:1.1}.xsj_hr{margin:20px 0;border:0;border-top:1px dashed #2f2f2f;border-left:90px solid transparent;border-right:90px solid transparent;text-align:center;overflow:visible}.xsj_hr:after{content:"§";top:-.7em;font-size:1.5em;padding:0 .25em;background:#fff}p{margin:0 0 1.1em}pre{line-height:initial!important;tab-size:4;white-space:pre-wrap}kbd{padding:3px 5px;font-size:11px;line-height:10px;background:#fcfcfc;border:1px solid #2f2f2f;border-bottom-color:#2f2f2f;border-radius:3px;box-shadow:inset 0 -1px 0 #2f2f2f}address{display:block;margin-bottom:20px;font-style:normal;line-height:20px}img{height:auto;max-width:100%;border:0}table{max-width:100%;background:0 0;border-collapse:collapse;border-spacing:0;word-break:initial;border:1px solid rgba(34,36,38,.15)}small{font-size:85%}em{font-style:italic}cite{font-style:normal}ol,ul{padding:0;margin:0 0 10px 35px}ol ol,ol ul,ul ol,ul ul{margin-bottom:0}dl{margin-bottom:20px}dd,dt{line-height:20px}dd{margin-left:10px}body dd,body dt{line-height:1.35em}abbr[data-original-title],abbr[title]{cursor:help;border-bottom:1px dotted #999}blockquote{padding:15px 20px;margin:0 0 20px;border-left:10px solid rgba(254,225,64,.8);background:rgba(254,225,64,.3)}blockquote p{margin-bottom:0;font-size:16px;font-weight:300;line-height:25px}blockquote small{display:block;line-height:20px;color:#fee140}blockquote small:before{content:'\2014 \00A0'}blockquote footer{margin:1em 0;font-style:italic}blockquote footer cite{margin:0 1em}code{background:rgba(250,112,154,.13);color:#FA709A;border-radius:4px;padding:2px 4px}body code{border:0;border-radius:4px;font-size:90%}text{font-size:14px}h1.story_title{margin:.7em 0}.story_tags{margin:0 0 1.2em}.tag.label{display:inline-block;vertical-align:baseline;line-height:1;margin:.125em;background:rgba(255,127,14,.1);border-color:rgba(255,127,14,.1);background-image:none;padding:.6em .8em;color:#ff7f0e;text-transform:none;border-radius:.2857rem;box-sizing:border-box;font-size:12px}.table{width:100%;margin-bottom:20px;margin-right:auto;margin-left:auto}.table td,.table th{padding:8px;line-height:20px;text-align:left;vertical-align:top;border-top:1px solid #ddd}.table thead th{vertical-align:bottom}.table caption+thead tr:first-child td,.table caption+thead tr:first-child th,.table colgroup+thead tr:first-child td,.table colgroup+thead tr:first-child th,.table thead:first-child tr:first-child td,.table thead:first-child tr:first-child th{border-top:0}.table tbody+tbody{border-top:2px solid #ddd}.table .table{background:#fff}.table-striped tbody>tr:nth-child(odd)>td,.table-striped tbody>tr:nth-child(odd)>th{background:#f9f9f9}.table-celled.table tr td,.table-celled.table tr th{border-left:1px solid rgba(34,36,38,.1)}.table-celled.table tr td:first-child,.table-celled.table tr th:first-child{border-left:none}.mindmap_container{text-align:center}.xsj_mindmap_caption{border-bottom:1px solid #d9d9d9;display:inline-block;color:#999;padding:10px}.hljs,.hljs *{overflow:visible!important;word-spacing:initial}body .xiaoshujiang_code{border:0;border-radius:4px;font-size:90%}.xiaoshujiang_code ol{margin-bottom:0}.xiaoshujiang_pre{line-height:initial!important;word-wrap:break-word;word-break:break-word;tab-size:4;white-space:pre-wrap}.xiaoshujiang_code_container pre{margin:0}.xiaoshujiang_code_container.xiaoshujiang_code_chunk{box-shadow:0 0 0 1px #A3C293 inset,0 0 0 0 transparent;margin:1em 0;padding:1em}.xiaoshujiang_code_container.xiaoshujiang_code_chunk_hide_code{box-shadow:initial;padding:initial initial 2em}.xiaoshujiang_code_container .out_put{box-shadow:0 0 0 1px #A3C293 inset,0 0 0 0 transparent;margin:1em 0;background:#FCFFF5;padding:1em}.xiaoshujiang_code_container .out_put_error{background:#FFF6F6;color:#9F3A38;margin:1em 0;box-shadow:0 0 0 1px #E0B4B4 inset,0 0 0 0 transparent;padding:1em}.ol_linenums{padding:0;margin-left:2em;border-left:1px solid #e0e0e0}.li_linenum{margin-left:.5em;list-style:none;counter-increment:lines 1}.li_linenum.li_list_style{list-style:inherit;margin-left:5px}.li_linenum:before,.li_linenum_before_span{content:counter(lines,decimal);position:absolute;left:-3em;text-align:center;width:2.5em;vertical-align:top}.li_linenum_before_span_hide{display:none}.xiaoshujiang_code_container{margin:1em 0;position:relative;padding-bottom:2em}.xiaoshujiang_code_title_container{font-size:70%;opacity:.5}.xiaoshujiang_code_title_container>.xiaoshujiang_code_infos{float:right}.mark{border:0;background:rgba(221,243,231,.4);color:#29754d;padding:2px 4px}.line_mark{border:1px dashed #2f2f2f;margin-top:2px}.xiaoshujiang_code .mark,code .mark{border-radius:0;font-size:initial;padding:initial}a.attachment{background:#ecf0f3;border:1px solid #bec6cb;display:inline-block;padding:5px;margin:2px;min-width:250px}a.attachment i.fa{font-size:3em;float:left;margin-right:.2em}a.attachment .filename{vertical-align:top;text-align:left}.flow-chart,.mermaid,.plot,.plot-image,.sequence-diagram,.story_image_container,.story_remote_resource_block,.video_container{text-align:center}a.attachment .filesize{display:-webkit-box;display:-moz-box;display:-ms-flexbox;display:-webkit-flex;display:flex;opacity:.6;font-size:80%;white-space:nowrap}.story_image_container>.story_image{display:inline-block;position:relative;max-width:100%}.story_image_caption{border-bottom:1px solid #d9d9d9;display:inline-block;color:#999;padding:10px}.story_image_blank_caption{border-bottom:0}.story_image>img{border-radius:.3125em;box-shadow:0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08)}.story_inline_image{display:inline-block}.story_inline_image>img{vertical-align:bottom}.task-list-item{list-style:none}.task-list-item.li_list_style{list-style:inherit}.task-list-item>input{margin:0 0 0 -20px}.video_container{width:100%;display:table;position:relative;padding-bottom:56.25%!important}.video_container iframe{width:100%;height:100%;position:absolute;top:0;left:0;z-index:1;vertical-align:middle}.slideshare_container .inner{position:relative;width:100%}.slideshare_container .inner iframe{width:100%;height:100%;position:absolute;top:0;bottom:0;left:0;right:0}.toc ul{list-style-type:none}em.cjk_emphasis{font-style:normal;font-family:Georgia,"Times New Roman",Times,"楷体","AR PL UKai CN",NSimSun,"Songti SC",SimSun,serif!important}.plot,.plot-image{min-height:200px;min-width:200px}.story_align_left,.story_align_left .story_image_container{text-align:left}.story_align_right,.story_align_right .story_image_container{text-align:right}.story_align_center,.story_align_center .story_image_container{text-align:center}.story_align_justify,.story_align_justify .story_image_container{text-align:justify}.mathjax-container{text-align:center}div.mathjax{max-width:600px;margin:0 auto;font-size:14px}.preview.html_preview{max-width:10in;background:#FFF;margin:80px 10%;padding:30px 60px;border-radius:20px;box-shadow:0 3px 26px 0 rgba(0,0,0,.2)}@media print{html{font-size:12px}body{word-wrap:break-word;word-break:break-word;background:initial;font-kerning:normal;text-rendering:geometricPrecision}body:before{content:unset;position:fixed;top:0;bottom:0;width:100%;z-index:-1;background:linear-gradient(to right bottom,rgba(255,255,255,.2),#21D4FD 75%)}.preview.html_preview{max-width:10in;background:#FFF;margin:initial;padding:initial;border-radius:initial;box-shadow:initial}.xiaoshujiang_element.xsj_anchor{position:absolute}.story_image_container,tr{page-break-inside:avoid}.xsj_underline{page-break-after:always;visibility:hidden}}
+/*
+
+Orginal Style from ethanschoonover.com/solarized (c) Jeremy Hull <sourdrums@gmail.com>
+
+*/
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  background: #fdf6e3;
+  color: #657b83;
+}
+
+.hljs-comment,
+.hljs-quote {
+  color: #93a1a1;
+}
+
+/* Solarized Green */
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-addition {
+  color: #859900;
+}
+
+/* Solarized Cyan */
+.hljs-number,
+.hljs-string,
+.hljs-meta .hljs-meta-string,
+.hljs-literal,
+.hljs-doctag,
+.hljs-regexp {
+  color: #2aa198;
+}
+
+/* Solarized Blue */
+.hljs-title,
+.hljs-section,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class {
+  color: #268bd2;
+}
+
+/* Solarized Yellow */
+.hljs-attribute,
+.hljs-attr,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-class .hljs-title,
+.hljs-type {
+  color: #b58900;
+}
+
+/* Solarized Orange */
+.hljs-symbol,
+.hljs-bullet,
+.hljs-subst,
+.hljs-meta,
+.hljs-meta .hljs-keyword,
+.hljs-selector-attr,
+.hljs-selector-pseudo,
+.hljs-link {
+  color: #cb4b16;
+}
+
+/* Solarized Red */
+.hljs-built_in,
+.hljs-deletion {
+  color: #dc322f;
+}
+
+.hljs-formula {
+  background: #eee8d5;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+/**
+ * Treeview syntax highlighting based on highlight.js
+ * Copyright (c) 2014-2015, Asciidocfx Team, (MIT Licensed)
+ * https://github.com/asciidocfx/highlight-treeview.js
+ */
+.language-treeview.hljs{
+  position: relative;
+}
+.hljs-folder,
+.hljs-hiddenfile,
+.hljs-file {
+    position: relative;
+    vertical-align: top;
+    display: inline-block;
+    height: 16px;
+}
+.hljs-folder:before,
+.hljs-file:before,
+.hljs-hiddenfile:before {
+    top: 0;
+    content: '';
+    width: 14px;
+    height: 12px;
+    margin-top: 0px;
+    margin-right: 3px;
+    position: relative;
+    display: inline-block;
+    background-size: 14px;
+    background-repeat: no-repeat;
+}
+.hljs-file:before,
+.hljs-hiddenfile:before {
+    height: 14px;
+    margin-left: 1px;
+}
+.hljs-hiddenfile {
+    opacity: 0.6;
+}
+.hljs-file.photo:before {
+    font: normal normal normal 14px/1 FontAwesome;
+    content: "\f1c5";
+}
+.hljs-file.plain:before {
+    font: normal normal normal 14px/1 FontAwesome;
+    content: "\f016";
+}
+.hljs-file.source:before {
+    font: normal normal normal 14px/1 FontAwesome;
+    content: "\f1c9";
+}
+.hljs-file.archive:before {
+    font: normal normal normal 14px/1 FontAwesome;
+    content: "\f1c6";
+}
+.hljs-file.audio:before {
+    font: normal normal normal 14px/1 FontAwesome;
+    content: "\f1c7";
+}
+.hljs-file.video:before {
+    font: normal normal normal 14px/1 FontAwesome;
+    content: "\f1c8";
+}
+.hljs-file.pdf:before {
+    font: normal normal normal 14px/1 FontAwesome;
+    content: "\f1c1";
+}
+.hljs-file.xls:before {
+    font: normal normal normal 14px/1 FontAwesome;
+    content: "\f1c3";
+}
+.hljs-file.doc:before {
+    font: normal normal normal 14px/1 FontAwesome;
+    content: "\f1c2";
+}
+.hljs-file.ppt:before {
+    font: normal normal normal 14px/1 FontAwesome;
+    content: "\f1c4";
+}
+.hljs-folder:before {
+    font: normal normal normal 14px/1 FontAwesome;
+    content: "\f114";
+}
+.hljs-hiddenfile:before {
+    font: normal normal normal 14px/1 FontAwesome;
+    content: "\f016";
+}
+.hljs-tvline {
+    margin-left: 6px;
+    position: absolute;
+    text-indent: -99em;
+    padding-bottom: 8px;
+    vertical-align: top;
+    display: inline-block;
+    border-left-width: 1px;
+    border-left-style: solid;
+    border-left-color: rgb(94, 144, 117);
+}
+.hljs-folder-branch {
+    width: 8px;
+    height: 8px;
+    margin-top: -1px;
+    margin-left: 6px;
+    text-indent: -99em;
+    position: relative;
+    vertical-align: top;
+    display: inline-block;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: rgb(94, 144, 117);
+}
+.hljs-folder-branch.win {
+    width: 14px;
+    margin-right: 2px;
+}
+.hljs-folder-last-branch {
+    height: 7px;
+    width: 7px;
+    margin-left: 6px;
+    text-indent: -99em;
+    position: relative;
+    vertical-align: top;
+    display: inline-block;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: rgb(94, 144, 117);
+    border-left-width: 1px;
+    border-left-style: solid;
+    border-left-color: rgb(94, 144, 117);
+}
+.hljs-folder-last-branch.win {
+    width: 13px;
+    margin-right: 2px;
+}
+
+
+/**
+ * Treeview syntax highlighting based on highlight.js
+ */
+
+/*wavedrom start*/
+
+.wavedrom_svg text, .wavedrom_svg_defs text {
+    font-size:11pt;
+    font-style:normal;
+    font-variant:normal;
+    font-weight:normal;
+    font-stretch:normal;
+    text-align:center;
+    fill-opacity:1;
+    font-family:Helvetica
+}
+.wavedrom_svg .muted, .wavedrom_svg_defs .muted {
+    fill:#aaa
+}
+.wavedrom_svg .warning, .wavedrom_svg_defs .warning {
+    fill:#f6b900
+}
+.wavedrom_svg .error, .wavedrom_svg_defs .error {
+    fill:#f60000
+}
+.wavedrom_svg .info, .wavedrom_svg_defs .info {
+    fill:#0041c4
+}
+.wavedrom_svg .success, .wavedrom_svg_defs .success {
+    fill:#00ab00
+}
+.wavedrom_svg .h1, .wavedrom_svg_defs .h1 {
+    font-size:33pt;
+    font-weight:bold
+}
+.wavedrom_svg .h2, .wavedrom_svg_defs .h2 {
+    font-size:27pt;
+    font-weight:bold
+}
+.wavedrom_svg .h3, .wavedrom_svg_defs .h3 {
+    font-size:20pt;
+    font-weight:bold
+}
+.wavedrom_svg .h4, .wavedrom_svg_defs .h4 {
+    font-size:14pt;
+    font-weight:bold
+}
+.wavedrom_svg .h5, .wavedrom_svg_defs .h5 {
+    font-size:11pt;
+    font-weight:bold
+}
+.wavedrom_svg .h6, .wavedrom_svg_defs .h6 {
+    font-size:8pt;
+    font-weight:bold
+}
+.wavedrom_svg_defs .s1 {
+    fill:none;
+    stroke:#000;
+    stroke-width:1;
+    stroke-linecap:round;
+    stroke-linejoin:miter;
+    stroke-miterlimit:4;
+    stroke-opacity:1;
+    stroke-dasharray:none
+}
+.wavedrom_svg_defs .s2 {
+    fill:none;
+    stroke:#000;
+    stroke-width:0.5;
+    stroke-linecap:round;
+    stroke-linejoin:miter;
+    stroke-miterlimit:4;
+    stroke-opacity:1;
+    stroke-dasharray:none
+}
+.wavedrom_svg_defs .s3 {
+    color:#000;
+    fill:none;
+    stroke:#000;
+    stroke-width:1;
+    stroke-linecap:round;
+    stroke-linejoin:miter;
+    stroke-miterlimit:4;
+    stroke-opacity:1;
+    stroke-dasharray:1,3;
+    stroke-dashoffset:0;
+    marker:none;
+    visibility:visible;
+    display:inline;
+    overflow:visible;
+    enable-background:accumulate
+}
+.wavedrom_svg_defs .s4 {
+    color:#000;
+    fill:none;
+    stroke:#000;
+    stroke-width:1;
+    stroke-linecap:round;
+    stroke-linejoin:miter;
+    stroke-miterlimit:4;
+    stroke-opacity:1;
+    stroke-dasharray:none;
+    stroke-dashoffset:0;
+    marker:none;
+    visibility:visible;
+    display:inline;
+    overflow:visible
+}
+.wavedrom_svg_defs .s5 {
+    fill:#fff;
+    stroke:none
+}
+.wavedrom_svg_defs .s6 {
+    color:#000;
+    fill:#ffffb4;
+    fill-opacity:1;
+    fill-rule:nonzero;
+    stroke:none;
+    stroke-width:1px;
+    marker:none;
+    visibility:visible;
+    display:inline;
+    overflow:visible;
+    enable-background:accumulate
+}
+.wavedrom_svg_defs .s7 {
+    color:#000;
+    fill:#ffe0b9;
+    fill-opacity:1;
+    fill-rule:nonzero;
+    stroke:none;
+    stroke-width:1px;
+    marker:none;
+    visibility:visible;
+    display:inline;
+    overflow:visible;
+    enable-background:accumulate
+}
+.wavedrom_svg_defs .s8 {
+    color:#000;
+    fill:#b9e0ff;
+    fill-opacity:1;
+    fill-rule:nonzero;
+    stroke:none;
+    stroke-width:1px;
+    marker:none;
+    visibility:visible;
+    display:inline;
+    overflow:visible;
+    enable-background:accumulate
+}
+.wavedrom_svg_defs .s9 {
+    fill:#000;
+    fill-opacity:1;
+    stroke:none
+}
+.wavedrom_svg_defs .s10 {
+    color:#000;
+    fill:#fff;
+    fill-opacity:1;
+    fill-rule:nonzero;
+    stroke:none;
+    stroke-width:1px;
+    marker:none;
+    visibility:visible;
+    display:inline;
+    overflow:visible;
+    enable-background:accumulate
+}
+.wavedrom_svg_defs .s11 {
+    fill:#0041c4;
+    fill-opacity:1;
+    stroke:none
+}
+.wavedrom_svg_defs .s12 {
+    fill:none;
+    stroke:#0041c4;
+    stroke-width:1;
+    stroke-linecap:round;
+    stroke-linejoin:miter;
+    stroke-miterlimit:4;
+    stroke-opacity:1;
+    stroke-dasharray:none
+}
+
+/*wavedrom stop*/
+
+
+/* fontawesome */
+
+/*!
+ * Font Awesome Free 5.7.1 by @fontawesome - https://fontawesome.com
+ * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+ */
+svg:not(:root).svg-inline--fa {
+  overflow: visible; }
+
+.svg-inline--fa {
+  display: inline-block;
+  font-size: inherit;
+  height: 1em;
+  overflow: visible;
+  vertical-align: -.125em; }
+  .svg-inline--fa.fa-lg {
+    vertical-align: -.225em; }
+  .svg-inline--fa.fa-w-1 {
+    width: 0.0625em; }
+  .svg-inline--fa.fa-w-2 {
+    width: 0.125em; }
+  .svg-inline--fa.fa-w-3 {
+    width: 0.1875em; }
+  .svg-inline--fa.fa-w-4 {
+    width: 0.25em; }
+  .svg-inline--fa.fa-w-5 {
+    width: 0.3125em; }
+  .svg-inline--fa.fa-w-6 {
+    width: 0.375em; }
+  .svg-inline--fa.fa-w-7 {
+    width: 0.4375em; }
+  .svg-inline--fa.fa-w-8 {
+    width: 0.5em; }
+  .svg-inline--fa.fa-w-9 {
+    width: 0.5625em; }
+  .svg-inline--fa.fa-w-10 {
+    width: 0.625em; }
+  .svg-inline--fa.fa-w-11 {
+    width: 0.6875em; }
+  .svg-inline--fa.fa-w-12 {
+    width: 0.75em; }
+  .svg-inline--fa.fa-w-13 {
+    width: 0.8125em; }
+  .svg-inline--fa.fa-w-14 {
+    width: 0.875em; }
+  .svg-inline--fa.fa-w-15 {
+    width: 0.9375em; }
+  .svg-inline--fa.fa-w-16 {
+    width: 1em; }
+  .svg-inline--fa.fa-w-17 {
+    width: 1.0625em; }
+  .svg-inline--fa.fa-w-18 {
+    width: 1.125em; }
+  .svg-inline--fa.fa-w-19 {
+    width: 1.1875em; }
+  .svg-inline--fa.fa-w-20 {
+    width: 1.25em; }
+  .svg-inline--fa.fa-pull-left {
+    margin-right: .3em;
+    width: auto; }
+  .svg-inline--fa.fa-pull-right {
+    margin-left: .3em;
+    width: auto; }
+  .svg-inline--fa.fa-border {
+    height: 1.5em; }
+  .svg-inline--fa.fa-li {
+    width: 2em; }
+  .svg-inline--fa.fa-fw {
+    width: 1.25em; }
+
+.fa-layers svg.svg-inline--fa {
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  top: 0; }
+
+.fa-layers {
+  display: inline-block;
+  height: 1em;
+  position: relative;
+  text-align: center;
+  vertical-align: -.125em;
+  width: 1em; }
+  .fa-layers svg.svg-inline--fa {
+    -webkit-transform-origin: center center;
+            transform-origin: center center; }
+
+.fa-layers-text, .fa-layers-counter {
+  display: inline-block;
+  position: absolute;
+  text-align: center; }
+
+.fa-layers-text {
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -webkit-transform-origin: center center;
+          transform-origin: center center; }
+
+.fa-layers-counter {
+  background-color: #ff253a;
+  border-radius: 1em;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: #fff;
+  height: 1.5em;
+  line-height: 1;
+  max-width: 5em;
+  min-width: 1.5em;
+  overflow: hidden;
+  padding: .25em;
+  right: 0;
+  text-overflow: ellipsis;
+  top: 0;
+  -webkit-transform: scale(0.25);
+          transform: scale(0.25);
+  -webkit-transform-origin: top right;
+          transform-origin: top right; }
+
+.fa-layers-bottom-right {
+  bottom: 0;
+  right: 0;
+  top: auto;
+  -webkit-transform: scale(0.25);
+          transform: scale(0.25);
+  -webkit-transform-origin: bottom right;
+          transform-origin: bottom right; }
+
+.fa-layers-bottom-left {
+  bottom: 0;
+  left: 0;
+  right: auto;
+  top: auto;
+  -webkit-transform: scale(0.25);
+          transform: scale(0.25);
+  -webkit-transform-origin: bottom left;
+          transform-origin: bottom left; }
+
+.fa-layers-top-right {
+  right: 0;
+  top: 0;
+  -webkit-transform: scale(0.25);
+          transform: scale(0.25);
+  -webkit-transform-origin: top right;
+          transform-origin: top right; }
+
+.fa-layers-top-left {
+  left: 0;
+  right: auto;
+  top: 0;
+  -webkit-transform: scale(0.25);
+          transform: scale(0.25);
+  -webkit-transform-origin: top left;
+          transform-origin: top left; }
+
+.fa-lg {
+  font-size: 1.33333em;
+  line-height: 0.75em;
+  vertical-align: -.0667em; }
+
+.fa-xs {
+  font-size: .75em; }
+
+.fa-sm {
+  font-size: .875em; }
+
+.fa-1x {
+  font-size: 1em; }
+
+.fa-2x {
+  font-size: 2em; }
+
+.fa-3x {
+  font-size: 3em; }
+
+.fa-4x {
+  font-size: 4em; }
+
+.fa-5x {
+  font-size: 5em; }
+
+.fa-6x {
+  font-size: 6em; }
+
+.fa-7x {
+  font-size: 7em; }
+
+.fa-8x {
+  font-size: 8em; }
+
+.fa-9x {
+  font-size: 9em; }
+
+.fa-10x {
+  font-size: 10em; }
+
+.fa-fw {
+  text-align: center;
+  width: 1.25em; }
+
+.fa-ul {
+  list-style-type: none;
+  margin-left: 2.5em;
+  padding-left: 0; }
+  .fa-ul > li {
+    position: relative; }
+
+.fa-li {
+  left: -2em;
+  position: absolute;
+  text-align: center;
+  width: 2em;
+  line-height: inherit; }
+
+.fa-border {
+  border: solid 0.08em #eee;
+  border-radius: .1em;
+  padding: .2em .25em .15em; }
+
+.fa-pull-left {
+  float: left; }
+
+.fa-pull-right {
+  float: right; }
+
+.fa.fa-pull-left,
+.fas.fa-pull-left,
+.far.fa-pull-left,
+.fal.fa-pull-left,
+.fab.fa-pull-left {
+  margin-right: .3em; }
+
+.fa.fa-pull-right,
+.fas.fa-pull-right,
+.far.fa-pull-right,
+.fal.fa-pull-right,
+.fab.fa-pull-right {
+  margin-left: .3em; }
+
+.fa-spin {
+  -webkit-animation: fa-spin 2s infinite linear;
+          animation: fa-spin 2s infinite linear; }
+
+.fa-pulse {
+  -webkit-animation: fa-spin 1s infinite steps(8);
+          animation: fa-spin 1s infinite steps(8); }
+
+@-webkit-keyframes fa-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg); } }
+
+@keyframes fa-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg); } }
+
+.fa-rotate-90 {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=1)";
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg); }
+
+.fa-rotate-180 {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2)";
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg); }
+
+.fa-rotate-270 {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=3)";
+  -webkit-transform: rotate(270deg);
+          transform: rotate(270deg); }
+
+.fa-flip-horizontal {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1)";
+  -webkit-transform: scale(-1, 1);
+          transform: scale(-1, 1); }
+
+.fa-flip-vertical {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1)";
+  -webkit-transform: scale(1, -1);
+          transform: scale(1, -1); }
+
+.fa-flip-both, .fa-flip-horizontal.fa-flip-vertical {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1)";
+  -webkit-transform: scale(-1, -1);
+          transform: scale(-1, -1); }
+
+:root .fa-rotate-90,
+:root .fa-rotate-180,
+:root .fa-rotate-270,
+:root .fa-flip-horizontal,
+:root .fa-flip-vertical,
+:root .fa-flip-both {
+  -webkit-filter: none;
+          filter: none; }
+
+.fa-stack {
+  display: inline-block;
+  height: 2em;
+  position: relative;
+  width: 2.5em; }
+
+.fa-stack-1x,
+.fa-stack-2x {
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  top: 0; }
+
+.svg-inline--fa.fa-stack-1x {
+  height: 1em;
+  width: 1.25em; }
+
+.svg-inline--fa.fa-stack-2x {
+  height: 2em;
+  width: 2.5em; }
+
+.fa-inverse {
+  color: #fff; }
+
+.sr-only {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px; }
+
+.sr-only-focusable:active, .sr-only-focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto; }
+
+/* fontawesome end*/
+
+/* xsj patch start */
+
+.xiaoshujiang_code .code_line_break_hack{
+    margin:0;
+    border:0;
+    border-top:0;
+    border-bottom:0;
+}
+.component_attachment, .code_line_break_hack{
+  display: none;
+  visibility: collapse!important;
+  height: 0!important;
+}
+
+.blank_anchor_id {
+    float: right;
+    width: 1px
+}
+.blank_anchor_id {
+    visibility: hidden;
+}
+.blank_anchor_id:before {
+    content: 'a';
+}
+.xsj_foreignObject{
+  width: 100%!important;
+  height: 100%!important;
+  text-align: initial;
+  word-spacing: normal;
+}
+.xsj_foreignObject hr{
+    margin: inherit;
+}
+.xsj_foreignObject.xsj_drawio_foreignObject *{
+  font-size: inherit;
+}
+.xsj_foreignObject.xsj_drawio_foreignObject h1{
+  font-size: 2em;
+  margin-block-start: 0.67em;
+  margin-block-end: 0.67em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+}
+.xsj_foreignObject.xsj_drawio_foreignObject h2{
+  font-size: 1.5em;
+  margin-block-start: 0.83em;
+  margin-block-end: 0.83em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+}
+.xsj_foreignObject.xsj_drawio_foreignObject h3{
+  font-size: 1.17em;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+}
+.xsj_foreignObject.xsj_drawio_foreignObject h4{
+  font-size: 1em;
+  margin-block-start: 1.33em;
+  margin-block-end: 1.33em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+}
+.xsj_foreignObject.xsj_drawio_foreignObject h5{
+  font-size: .83em;
+  margin-block-start: 1.67em;
+  margin-block-end: 1.67em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+}
+.xsj_foreignObject.xsj_drawio_foreignObject h6{
+  font-size: .67em;
+  margin-block-start: 2.33em;
+  margin-block-end: 2.33em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+}
+
+/* xsj patch end */
+
+/* emoji */
+img.emoji {
+    width: 1em;
+    line-height: 1em;
+    vertical-align: baseline;
+    margin-bottom: 0;
+}
+/* emoji */
+
+/**xsjCSSMeta
+previewTheme: story_colorful
+xsjCSSMeta**/
+
+</style>
+</head><body>
+<div><div class="preview" id="wmd-preview">
+
+	<div class="preview html_preview xsj_export_html"><p class="xsj_paragraph xsj_paragraph_level_0"></p><div class="toc"><ul><li><a href="#e7acace58d81e585ade7aba020nlp_1">第十六章 NLP</a><ul><li><a href="#16020nlp20e58f91e5b195e58fb2e7ae80e8bfb0_2">16.0 NLP 发展史简述</a><ul><li><a href="#e7acace4b880e4b8aae6b5aae6bdaeefbc9ae79086e680a7e4b8bbe4b989_3">第一个浪潮：理性主义</a></li><li><a href="#e7acace4ba8ce6b3a2e6b5aae6bdaeefbc9ae7bb8fe9aa8ce4b8bbe4b989_4">第二波浪潮：经验主义</a></li><li><a href="#e7acace4b889e6b3a2e6b5aae6bdaeefbc9ae6b7b1e5baa6e5ada6e4b9a0_5">第三波浪潮：深度学习</a></li></ul></li><li><a href="#16120e5a682e4bd95e79086e8a7a3e5ba8fe58897e588b0e5ba8fe58897e6a8a1e59e8befbc9f_6">16.1 如何理解序列到序列模型？</a></li><li><a href="#16220e5ba8fe58897e588b0e5ba8fe58897e6a8a1e59e8be69c89e4bb80e4b988e99990e588b6e59097efbc9f_7">16.2 序列到序列模型有什么限制吗？</a></li><li><a href="#16320e5a682e69e9ce4b88de98787e794a8e5ba8fe58897e588b0e5ba8fe58897e6a8a1e59e8befbc8ce58fafe4bba5e88083e89991e794a8e585b6e5ae83e6a8a1e59e8be696b9e6b395e59097efbc9f_8">16.3 如果不采用序列到序列模型，可以考虑用其它模型方法吗？</a></li><li><a href="#16420e5a682e4bd95e79086e8a7a3e8af8de59091e9878fefbc9f_9">16.4 如何理解词向量？</a></li><li><a href="#16520e8af8de59091e9878fe593aae5aeb6e5a5bdefbc9f_10">16.5 词向量哪家好？</a></li><li><a href="#16620e8a7a3e9878ae4b880e4b88be6b3a8e6848fe58a9be69cbae588b6e79a84e58e9fe79086efbc9f_11">16.6 解释一下注意力机制的原理？</a></li><li><a href="#16720e6b3a8e6848fe58a9be69cbae588b6e698afe4b88de698afe98082e794a8e4ba8ee68980e69c89e59cbae699afe591a2efbc9fe5ae83e79a84e9b281e6a392e680a7e5a682e4bd95efbc9f_12">16.7 注意力机制是不是适用于所有场景呢？它的鲁棒性如何？</a></li><li><a href="#16820e6808ee4b988e5b086e58e9fe69c89e79a84e6a8a1e59e8be58aa0e4b88ae6b3a8e6848fe58a9be69cbae588b6e591a2efbc9f_13">16.8 怎么将原有的模型加上注意力机制呢？</a></li><li><a href="#16920e9809ae4bf97e59cb0e8a7a3e9878ae4b880e4b88be8af8de6b395e58886e69e90e698afe4bb80e4b988efbc9fe69c89e4bb80e4b988e5ba94e794a8e59cbae699afefbc9f_14">16.9 通俗地解释一下词法分析是什么？有什么应用场景？</a></li><li><a href="#161020e6b7b1e5baa6e5ada6e4b9a0e4b8ade79a84e8af8de6b395e58886e69e90e69c89e593aae4ba9be5b8b8e8a781e6a8a1e59e8be591a2efbc9f_15">16.10 深度学习中的词法分析有哪些常见模型呢？</a></li><li><a href="#161120e9809ae4bf97e59cb0e8a7a3e9878ae4b880e4b88be79fa5e8af86e59bbee8b0b1e698afe4bb80e4b988efbc9fe69c89e4bb80e4b988e5ba94e794a8e59cbae699afefbc9f_16">16.11 通俗地解释一下知识图谱是什么？有什么应用场景？</a></li><li><a href="#161220e6b7b1e5baa6e5ada6e4b9a0e4b8ade79a84e79fa5e8af86e59bbee8b0b1e69c89e593aae4ba9be5b8b8e8a781e6a8a1e59e8be591a2efbc9f_17">16.12 深度学习中的知识图谱有哪些常见模型呢？</a></li><li><a href="#161320e6b7b1e5baa6e5ada6e4b9a0e4b8ade79a84e69cbae599a8e7bfbbe8af91e69c89e593aae4ba9be5b8b8e8a781e6a8a1e59e8be591a2efbc9f_18">16.13 深度学习中的机器翻译有哪些常见模型呢？</a></li><li><a href="#161420e69cbae599a8e7bfbbe8af91e79a84e9809ae4bf97e5ae9ee78eb0e4bba5e58f8ae983a8e7bdb2e8bf87e7a88be698afe6808ee6a0b7e79a84e591a2efbc9f_19">16.14 机器翻译的通俗实现以及部署过程是怎样的呢？</a></li><li><a href="#161520e9809ae4bf97e59cb0e8a7a3e9878ae4b880e4b88be69687e69cace68385e6849fe58886e69e90e698afe4bb80e4b988efbc9fe5b8b8e8a781e79a84e5ba94e794a8e59cbae699afe698afefbc9f_20">16.15 通俗地解释一下文本情感分析是什么？常见的应用场景是？</a></li><li><a href="#161620e69c80e5b8b8e794a8e79a84e68385e6849fe58886e69e90e6a8a1e59e8be698afe4bb80e4b988e591a2efbc9fe5a682e4bd95e5bfabe9809fe983a8e7bdb2e591a2efbc9f_21">16.16 最常用的情感分析模型是什么呢？如何快速部署呢？</a></li><li><a href="#161720e9809ae4bf97e59cb0e8a7a3e9878ae4b880e4b88be997aee7ad94e7b3bbe7bb9fefbc9fe5ae83e6b6b5e79b96e593aae4ba9be9a286e59f9fefbc9fe5b8b8e8a781e79a84e5ba94e794a8e59cbae699afe698afefbc9f_22">16.17 通俗地解释一下问答系统？它涵盖哪些领域？常见的应用场景是？</a></li><li><a href="#161820e5b8b8e8a781e79a84e997aee7ad94e7b3bbe7bb9fe6a8a1e59e8be698afe4bb80e4b988efbc9fe5a682e4bd95e5bfabe9809fe983a8e7bdb2e591a2efbc9f_23">16.18 常见的问答系统模型是什么？如何快速部署呢？</a></li><li><a href="#161920e59bbee5838fe69687e5ad97e7949fe68890e698afe4bb80e4b988efbc9fe5ae83e79a84e68a80e69cafe58e9fe79086e698afe4bb80e4b988efbc9f_24">16.19 图像文字生成是什么？它的技术原理是什么？</a></li><li><a href="#162020e5b8b8e8a781e79a84e59bbee5838fe69687e5ad97e7949fe68890e6a8a1e59e8be698afe4bb80e4b988efbc9f_25">16.20 常见的图像文字生成模型是什么？</a></li><li><a href="#162120nlp20e79a84e697a0e79b91e79da3e5ada6e4b9a0e58f91e5b195e58aa8e68081e698afe6808ee6a0b7e79a84efbc9fe69c89e593aae4ba9be9a286e59f9fe59ca8e5b09de8af95e697a0e79b91e79da3e5ada6e4b9a0efbc9f_26">16.21 NLP 的无监督学习发展动态是怎样的？有哪些领域在尝试无监督学习？</a></li><li><a href="#162220nlp20e5928ce5bcbae58c96e5ada6e4b9a0e79a84e7bb93e59088e696b9e5bc8fe698afe6808ee6a0b7e79a84efbc9fe69c89e593aae4ba9be696b9e59091e59ca8e5b09de8af95e5bcbae58c96e5ada6e4b9a0efbc9f_27">16.22 NLP 和强化学习的结合方式是怎样的？有哪些方向在尝试强化学习？</a></li><li><a href="#162320nlp20e5928ce58583e5ada6e4b9a0efbc9fe58583e5ada6e4b9a0e5a682e4bd95e883bde5a49fe5928c20nlp20e7bb93e59088e8b5b7e69da5efbc9f_28">16.23 NLP 和元学习？元学习如何能够和 NLP 结合起来？</a></li><li><a href="#162420e883bde8afb4e4b880e4b88be59084e887aae9a286e59f9fe69c80e5b8b8e794a8e4b894e5b8b8e8a781e79a84e59fbae58786e6a8a1e59e8be69c89e593aae4ba9be59097efbc9f_29">16.24 能说一下各自领域最常用且常见的基准模型有哪些吗？</a></li></ul></li></ul></div><p></p>
+<div class="xiaoshujiang_element xsj_anchor">
+  <a name="e7acace58d81e585ade7aba020nlp_1" class="blank_anchor_name"></a><a id="e7acace58d81e585ade7aba020nlp_1" class="blank_anchor_id"></a><a name="第十六章-nlp" class="blank_anchor_name"></a><a id="第十六章-nlp" class="blank_anchor_id"></a>
+</div>
+<h1 class="xsj_heading_hash xsj_heading xsj_heading_h1" id="e7acace58d81e585ade7aba020nlp_1"><span class="xsj_heading_content">第十六章 NLP</span></h1>
+<div class="xiaoshujiang_code_container"><pre><code class="nohighlight hljs">Markdown Revision 1;
+Date: 2018/11/14
+Editor: 盛泳潘-电子科技大学;何建宏-学生
+Contact: shengyp2011@163.com;Bonopengate@gmail.com</code></pre></div>
+<div class="xiaoshujiang_element xsj_anchor">
+  <a name="16020nlp20e58f91e5b195e58fb2e7ae80e8bfb0_2" class="blank_anchor_name"></a><a id="16020nlp20e58f91e5b195e58fb2e7ae80e8bfb0_2" class="blank_anchor_id"></a><a name="160-nlp-发展史简述" class="blank_anchor_name"></a><a id="160-nlp-发展史简述" class="blank_anchor_id"></a>
+</div>
+<h2 class="xsj_heading_hash xsj_heading xsj_heading_h2" id="16020nlp20e58f91e5b195e58fb2e7ae80e8bfb0_2"><span class="xsj_heading_content">16.0 NLP 发展史简述</span></h2>
+<p class="xsj_paragraph xsj_paragraph_level_0">50多年来 NLP 的历史发展可以分为三个浪潮，前两波以理性主义和经验主义的形式出现，为当前的深度学习浪潮铺平了道路。NLP的深层学习革命的主要支柱是: （1）语言嵌入实体的分布式表征，（2）由于嵌入而产生的语义泛化， （3）自然语言的大跨度深序列建模，（4）能够从低到高表示语言层次的分层网络，以及（5）解决许多联合 NLP 问题的端对端深度学习方法。</p>
+<div class="xiaoshujiang_element xsj_anchor">
+  <a name="e7acace4b880e4b8aae6b5aae6bdaeefbc9ae79086e680a7e4b8bbe4b989_3" class="blank_anchor_name"></a><a id="e7acace4b880e4b8aae6b5aae6bdaeefbc9ae79086e680a7e4b8bbe4b989_3" class="blank_anchor_id"></a><a name="第一个浪潮理性主义" class="blank_anchor_name"></a><a id="第一个浪潮理性主义" class="blank_anchor_id"></a>
+</div>
+<h3 class="xsj_heading_hash xsj_heading xsj_heading_h3" id="e7acace4b880e4b8aae6b5aae6bdaeefbc9ae79086e680a7e4b8bbe4b989_3"><span class="xsj_heading_content">第一个浪潮：理性主义</span></h3>
+<p class="xsj_paragraph xsj_paragraph_level_0">在第一个浪潮中，NLP的实验持续了很长一段时间，可以追溯到20世纪50年代。1950年，阿兰·图灵提出了图灵测试，以评估计算机表现出与人类无法区分的智能行为的能力。这项测试是基于人类和计算机之间的自然语言对话，旨在生成类似人类的反应。1954年，George-IBM 实验产出了能够将60多个俄语句子翻译成英语的rrst机器翻译系统。</p>
+<p class="xsj_paragraph xsj_paragraph_level_0">这些方法是基于这样一种信念，即人类思维中的语言知识是由泛型继承提前进行的，而这种信念，在大约1960年至1980年代后期，占据了NLP的大部分研究中的主导地位。这些方法被称为理性主义方法（Church 2007）。理性主义方法在 NLP 中的主导地位主要是由于诺姆·乔姆斯基（Noam Chomsky）关于先天语言结构的论点被广泛接受以及他对 N-grams 方法的批评（Chomsky 1957）。理性主义者一般假设语言的关键部分在出生时就被硬连接到大脑中，作为人类遗传遗传的一部分，因此他们试图设计手工制作的规则，将知识和推理机制纳入智能 NLP 系统。直到20世纪80年代，最著名的成功的NLP系统，如为模拟 Rogerian psychotherapist 的 ELIZA 系统和为了规则化真实世界信息为规则本体的 MARGIE 系统，都是基于复杂的手写规则。</p>
+<p class="xsj_paragraph xsj_paragraph_level_0">这一时期恰逢以专家知识工程为特点的早期智能的早期发展，即领域专家根据其所掌握的（非常狭窄的）应用领域的知识设计计算机程序（Nilsson 1982; Winston 1993）。专家们使用符号逻辑规则设计了这些程序，这些规则基于对这些知识的仔细表征和工程。这些以知识为基础的智能系统往往通过检测"Head"或最重要的参数，并就每种特殊情况采取特定的解决办法，而这在解决狭义问题方面往往是有效的。这些“Head”参数由人类专家预先确定，使“tail”参数和案例不受影响。由于缺乏学习能力，他们有必要将解决方案推广到新的情况和领域。这一时期的典型方法是专家系统所提供的证据，这是一个模拟人类专家决策能力的计算机系统。这种系统旨在通过知识推理来解决复杂的问题（Nilsson 1982）。第一个专家系统建立于1970年代，然后在1980年代推广。使用的主要"算法"是以"if-then-else"为形式的推断规则（Jackson 1998）。这些智能系统的主要优点是其在进行逻辑推理方面（有限）能力的透明度和可解释性。像NLP系统，如 ELIZA 和 MARGIE ，一般专家系统在早期使用手工制作的专家知识，这往往是有效的狭隘的问题，虽然推理无法处理不确定性，是普遍存在的实际应用。</p>
+<p class="xsj_paragraph xsj_paragraph_level_0">同样，语音识别研究和系统设计，这又是另一个长期存在的 NLP 和反智能挑战，在这个理性主义时代，主要基于专家知识工程的范式，如elegantly analyzed in（Church and Mercer 1993）。在1970年代和1980年代初，专家系统的语音识别方法相当流行（Reddy 1976; Zue 1985）。然而，研究人员敏锐地认识到，缺乏从数据中学习和处理推理不确定性的能力，导致了接下来描述的第二波语音识别、NLP和对于文本的人工智能浪潮也走向失败。</p>
+<div class="xiaoshujiang_element xsj_anchor">
+  <a name="e7acace4ba8ce6b3a2e6b5aae6bdaeefbc9ae7bb8fe9aa8ce4b8bbe4b989_4" class="blank_anchor_name"></a><a id="e7acace4ba8ce6b3a2e6b5aae6bdaeefbc9ae7bb8fe9aa8ce4b8bbe4b989_4" class="blank_anchor_id"></a><a name="第二波浪潮经验主义" class="blank_anchor_name"></a><a id="第二波浪潮经验主义" class="blank_anchor_id"></a>
+</div>
+<h3 class="xsj_heading_hash xsj_heading xsj_heading_h3" id="e7acace4ba8ce6b3a2e6b5aae6bdaeefbc9ae7bb8fe9aa8ce4b8bbe4b989_4"><span class="xsj_heading_content">第二波浪潮：经验主义</span></h3>
+<p class="xsj_paragraph xsj_paragraph_level_0">第二波 NLP 浪潮的特点是利用语料库数据以及基于（浅层）机器学习、统计学等来利用这些数据（Manning and Schtze 1999）。由于许多自然语言的结构和理论都被贬低或抛弃，而倾向于数据驱动的方法，这个时代发展的主要方法被称为经验或务实的方法（ChurchandMercer 1993;Church 2014）。NLP 的一个主要会议甚至被命名为“自然语言处理的经验方法（Empirical Methods in Natural Language Processing）（EMNLP）”，最直接地反映了NLP研究人员在那个时代对经验方法的强烈积极情绪。</p>
+<p class="xsj_paragraph xsj_paragraph_level_0">与理性主义方法相反，经验方法认为人类的思维只是从关联、模式识别和泛化的常规操作开始。丰富的感官输入需要使大脑学习自然语言的详细结构。经验主义盛行于1920年至1960年间，自1990年以来一直在兴起。NLP的早期经验方法主要是开发生成模型，如隐马尔可夫模型 （HMM） （Baum and Petrie 1966）， IBM 翻译模型 （Brown et al. 1993）， 和 head-driven parsing 模型（Collins 1997），以发现大型语料库的规律性。自1990年代后期以来，在各种NLP任务中，歧视性模式已成为事实上的做法。NLP的典型判别模型和方法包括最大熵模型（ratnaparkhi 1997）、支持向量机（Vapnik 1998）、条件随机（Lafferty et al. 2001）、最大相互信息和最小区分器错误（He et al. 2008）还有感知器（Collins 2002）。</p>
+<p class="xsj_paragraph xsj_paragraph_level_0">在这种经验主义时代中、NLP 与同样的智能方法如语音识别和计算机视觉是平行的。这是在明确的证据表明，学习和感知能力对复杂的智能系统至关重要，但在前一波流行的专家系统中却不存在。例如，当 DARPA 开始对自动驾驶提出重大挑战时，大多数车辆随后依赖于基于知识的智能智能。正如语音识别和NLP 一样，自主驾驶和计算机视觉研究人员意识到基于知识的范式的局限性，因为机器学习需要进行不确定性处理和泛化能力。</p>
+<p class="xsj_paragraph xsj_paragraph_level_0">在第二波浪潮中，NLP的经验主义和语音识别是基于数据密集型机器学习的，我们现在称之为“shallow”，因为在下一节中描述的第三波浪潮中，数据的多层或“deep”表征通常缺乏抽象结构。在机器学习中，在第一次浪潮中，研究人员不需要考虑构造精确规则，为知识为基础的 NLP 和语音系统。相反，他们把重点放在统计模型（Bishop 2006; Murphy 2012）或作为一个基本引擎的简单的神经网络（Bishop 1995）。然后，他们使用足够的训练数据进行自动学习或“tune（调整）”系统的参数，使它们能够处理不确定性，并尝试从一个条件泛化到另一个条件，从一个领域泛化到另一个领域。机器学习的关键算法和方法包括EM （期望最大化）、贝叶斯网络、支持向量机、决策树以及神经网络的反向传播算法。</p>
+<p class="xsj_paragraph xsj_paragraph_level_0">一般来说，基于机器学习的NLP、语音和其他智能系统的性能比早期的基于知识的智能系统要好得多。成功的例子包括语音识别 （Jelinek 1998）， 脸部识别 （Viola and Jones 2004）， 实体识别 （Fei-Fei and Perona 2005）， 手写字体识别 （Plamondon and Srihari 2000）， 以及机器翻译 （Och 2003）。</p>
+<p class="xsj_paragraph xsj_paragraph_level_0">在语音识别方面，从20世纪80年代初到2010年前后近30年，利用基于 HMM 与高斯混合模型相结合的统计生成模型，以及其推广的各种版本（Baker et al. 2009a，b; Deng and O’Shaughnessy 2003; Rabiner and Juang 1993）的统计生成模式。泛化 HMM 的许多版本都是基于统计和神经网络的隐动态模型（Deng 1998; Bridle et al. 1998; Deng and Yu 2007）。前者采用 EM 和 switching extended Kalman ﬁlter 算法学习模型参数（Ma and Deng 2004; Lee et al. 2004），后者采用反向传播（Picone et al. 1999），两者都广泛地利用多个潜在层表示法进行语音分析的生成过程。将这种“深度”生成过程转化为端到端过程的对应方案，导致了深度学习的工业化成功（Deng et al. 2010， 2013; Hinton et al. 2012） ，从而形成了第三波浪潮的驱动力。</p>
+<div class="xiaoshujiang_element xsj_anchor">
+  <a name="e7acace4b889e6b3a2e6b5aae6bdaeefbc9ae6b7b1e5baa6e5ada6e4b9a0_5" class="blank_anchor_name"></a><a id="e7acace4b889e6b3a2e6b5aae6bdaeefbc9ae6b7b1e5baa6e5ada6e4b9a0_5" class="blank_anchor_id"></a><a name="第三波浪潮深度学习" class="blank_anchor_name"></a><a id="第三波浪潮深度学习" class="blank_anchor_id"></a>
+</div>
+<h3 class="xsj_heading_hash xsj_heading xsj_heading_h3" id="e7acace4b889e6b3a2e6b5aae6bdaeefbc9ae6b7b1e5baa6e5ada6e4b9a0_5"><span class="xsj_heading_content">第三波浪潮：深度学习</span></h3>
+<p class="xsj_paragraph xsj_paragraph_level_0">在第二波浪潮中开发的 NLP 系统，包括语音识别、语言理解和机器翻译，表现得比在第一波浪潮时更好，鲁棒性更高，但它们远远没有达到人的水平，而这留下了很多需求。除了少数例外，NLP的（浅层）机器学习模型通常没有足够的容量来吸收大量的训练数据。此外，学习算法、方法和基础设施也都不够强大。所有这一切都在几年前发生了变化，而这导致了第三波 NLP 浪潮，这股浪潮是由深层机器学习或深度学习的新范式推动的（Bengio 2009; Deng and Yu 2014; LeCun et al. 2015; Goodfellow et al. 2016）。</p>
+<p class="xsj_paragraph xsj_paragraph_level_0">深度学习起源于人工神经网络，它可以被看作是受生物神经系统启发的细胞类型的级联模型。随着反向传播算法的出现（Rumelhart et al. 1986），90年代对深度神经网络的训练引起了广泛关注。在没有大量训练数据和没有适当的设计和学习范式的情况下，在神经网络训练过程中，学习信号随着层次数（或更严格的信用分配深度）在层层传播时呈指数形式消失，使得调整深层神经网络特别是递归的版本的连接权重变得异常艰难。Hinton 等人（2006）克服了这个问题，使用无人监督的预训练模型来进行学习有用的特征探测器。然后，通过监督学习进一步训练网络，对标记数据进行分类。因此，可以学习使用低维表征的方式来学习高维的表征的分布。这项开创性的工作标志着神经网络的复兴。此后提出和发展了各种网络结构，包括 Deep Belief 网络（Hinton et al.2006）、堆积自编码器（Vincent et al.2010）、深层玻尔兹曼机（Hinton and Salakhutdinov 2012）、深度卷积神经网络（Krizhevsky et al. 2012），深层堆积网络 （Deng et al. 2012），和深层 Q-networks （Mnih et al. 2015）。深度学习自2010年以来已成功地应用于实际智能领域的实际任务，包括语音识别（Yu et al. 2010; Hinton et al. 2012），图像识别（Krizhevsky et al. 2012; He et al. 2016），以及 NLP 绝大多数领域。</p>
+<p class="xsj_paragraph xsj_paragraph_level_0">其中由于微软公司在工业化上的成功，以及愈来愈高的准确率等迹象，这些2010-2011年语音识别的惊人成功预示着 NLP 的第三波浪潮和人工智能的到来。随着深度学习在语音识别方面取得成功，计算机视觉（Krizhevsky et al. 2012）和机器翻译（Bahdanau et al. 2015）被类似的深度学习范式所取代。特别是，虽然 Bengio 等人在2001的工作，在2011年就开发了强大的神经词嵌入技术（Bengio et al. 2001），但由于大数据的可用性和更快的计算，它直到10多年后才被证明在一个大规模和实际有用的规模上才能够实际有用（Mikolov et al. 2013）。此外，许多其他现实世界的NLP应用，如图像字幕（Karpathy and Fei-Fei 2015; Fang et al. 2015; Gan et al. 2017），视觉问题回答（Fei-Fei and Perona 2016），语音理解系统（Mesnil et al. 2013），网络搜索（Huang et al. 2013b）和推荐系统由于深度学习而取得成功，此外还有许多非NLP任务，包括药物发现和药理学、客户关系管理、推荐系统、手势识别、医学信息、广告投放、医学图像分析、机器人、自动驾驶车辆、纸板和电子游戏（例如 Atari， Go， Poker， and the latest， DOTA2）等。详情请参阅维基上的深度学习领域。</p>
+<p class="xsj_paragraph xsj_paragraph_level_0">在更多基于文本的应用领域中，机器翻译可能受到深度学习的影响最大。从 NLP 第二波浪潮中发展起来的浅层——统计机器翻译开始看起的话，目前在实际应用中最好的机器翻译系统是基于深神经网络的。例如，谷歌在2016年9月宣布了其转向神经机器翻译的阶段，两个月后微软也发布了类似的声明。Facebook已经进行了大约一年的机器神经网络翻译的转换工作，到2017年8月它已经完全将这个系统部署成功。</p>
+<p class="xsj_paragraph xsj_paragraph_level_0">在口语理解和对话系统领域，深度学习也正在产生巨大影响。目前流行的技术以多种方式维护和扩展了第二波时代浪潮中发展起来的统计方法。与经验（浅层）机器学习方法一样，深度学习也是基于数据密集型方法，以降低手工制作规则的成本，对噪声环境下的语音识别错误和语言理解错误具有很强的鲁棒性，并利用决策过程和强化学习的力量来设计对话策略，例如（Gasic et al. 2017; Dhingra et al. 2017）。与早期的方法相比，深度神经网络模型和表征方法更强大，它们使端到端学习成为可能。然而，深度学习也没有解决可解释性和领域泛化问题。</p>
+<p class="xsj_paragraph xsj_paragraph_level_0">将深度学习应用于 NLP 问题方面的最近的两个重要技术突破是序列到序列学习（Sutskevar et al. 2014）和注意力机制建模（Bahdanau et al. 2015），以及最近的 BERT模型（Jacob el al.2018） 。序列到序列学习引入了一个强大的学习范式，即使用递归神经网络以端到端的方式进行编码和解码。注意力机制建模最初是为了克服编码一个长序列的难度而开发的，后来的持续发展又扩展了它的能力，提供了两个任意序列的高度可塑对齐能力，而其两个可以同时学习神经网络参数。而 BERT 则是实现了双向建模获取以得到更好的语言表征能力。序列到序列学习和注意力机制的关键概念在基于统计学习和词局部表征的最佳系统上提高了基于分布式单词嵌入的神经机器翻译的性能，而 BERT 更重要的意义是双向获取同一文段的高维意义。在这一成功之后，这些概念也被成功地应用到许多其他与NLP相关的任务中，如图像字幕（Karpathy and Fei-Fei 2015; Devlin et al. 2015）、语音识别（Chorowski et al. 2015）、一次性学习、句法分析、唇读、文本理解、摘要以及问答系统等。撇开他们巨大的经验成功不谈，基于神经网络的深度学习模型往往比早期浪潮中的传统机器学习模型更简单、更容易设计。在许多应用中，在端到端的任务中，模型的所有部分都同时进行深度学习，从特征抽取到预测。导致神经网络模型相对简单的另一个因素是，相同的模型构建成的块（即不同类型的层）通常在许多不同的应用中使用。为多种任务使用相同的构建块，这种方法使得模型更容易迁移到其它任务和数据上。此外，谷歌等公司还开发了软件工具包，以便更快、更有效地实现这些模型。由于以上这些原因，神经网络在数据量大而且基于云的方式上，是更常用的。</p>
+<p class="xsj_paragraph xsj_paragraph_level_0">尽管深度学习在重塑语音、图像和视频的处理方面被证明是有效的，而且具有它的革命性，但在将深度学习与基于文本的 NLP 相结合方面的有效性并不那么明确，尽管它在一些实用的 NLP 任务中取得了经验上的成功。在语音、图像和视频处理中，深度学习通过直接从原始数据学习规律来解决语义差距问题。然而，在 NLP 中，人们提出了更强的理论和结构化模型，即语音、语法和语义，来提取理解和生成自然语言的基本机制，这些机制与神经网络不那么容易兼容。与语音、图像和视频信号相比，从文本数据中学习的神经表征可以对自然语言提供同样直接的见解，但是这个也不够直接。因此，将神经网络，特别是那些具有复杂层次结构的神经网络应用于 NLP，已成为 NLP 和深度学习社区中最活跃的领域，近年来取得了非常显著的进展（Deng 2016; Manning and Socher 2017;Jacob el al.2018）。</p>
+<div class="xiaoshujiang_element xsj_anchor">
+  <a name="16120e5a682e4bd95e79086e8a7a3e5ba8fe58897e588b0e5ba8fe58897e6a8a1e59e8befbc9f_6" class="blank_anchor_name"></a><a id="16120e5a682e4bd95e79086e8a7a3e5ba8fe58897e588b0e5ba8fe58897e6a8a1e59e8befbc9f_6" class="blank_anchor_id"></a><a name="161-如何理解序列到序列模型" class="blank_anchor_name"></a><a id="161-如何理解序列到序列模型" class="blank_anchor_id"></a>
+</div>
+<h2 class="xsj_heading_hash xsj_heading xsj_heading_h2" id="16120e5a682e4bd95e79086e8a7a3e5ba8fe58897e588b0e5ba8fe58897e6a8a1e59e8befbc9f_6"><span class="xsj_heading_content">16.1 如何理解序列到序列模型？</span></h2>
+<div class="xiaoshujiang_element xsj_anchor">
+  <a name="16220e5ba8fe58897e588b0e5ba8fe58897e6a8a1e59e8be69c89e4bb80e4b988e99990e588b6e59097efbc9f_7" class="blank_anchor_name"></a><a id="16220e5ba8fe58897e588b0e5ba8fe58897e6a8a1e59e8be69c89e4bb80e4b988e99990e588b6e59097efbc9f_7" class="blank_anchor_id"></a><a name="162-序列到序列模型有什么限制吗" class="blank_anchor_name"></a><a id="162-序列到序列模型有什么限制吗" class="blank_anchor_id"></a>
+</div>
+<h2 class="xsj_heading_hash xsj_heading xsj_heading_h2" id="16220e5ba8fe58897e588b0e5ba8fe58897e6a8a1e59e8be69c89e4bb80e4b988e99990e588b6e59097efbc9f_7"><span class="xsj_heading_content">16.2 序列到序列模型有什么限制吗？</span></h2>
+<div class="xiaoshujiang_element xsj_anchor">
+  <a name="16320e5a682e69e9ce4b88de98787e794a8e5ba8fe58897e588b0e5ba8fe58897e6a8a1e59e8befbc8ce58fafe4bba5e88083e89991e794a8e585b6e5ae83e6a8a1e59e8be696b9e6b395e59097efbc9f_8" class="blank_anchor_name"></a><a id="16320e5a682e69e9ce4b88de98787e794a8e5ba8fe58897e588b0e5ba8fe58897e6a8a1e59e8befbc8ce58fafe4bba5e88083e89991e794a8e585b6e5ae83e6a8a1e59e8be696b9e6b395e59097efbc9f_8" class="blank_anchor_id"></a><a name="163-如果不采用序列到序列模型可以考虑用其它模型方法吗" class="blank_anchor_name"></a><a id="163-如果不采用序列到序列模型可以考虑用其它模型方法吗" class="blank_anchor_id"></a>
+</div>
+<h2 class="xsj_heading_hash xsj_heading xsj_heading_h2" id="16320e5a682e69e9ce4b88de98787e794a8e5ba8fe58897e588b0e5ba8fe58897e6a8a1e59e8befbc8ce58fafe4bba5e88083e89991e794a8e585b6e5ae83e6a8a1e59e8be696b9e6b395e59097efbc9f_8"><span class="xsj_heading_content">16.3 如果不采用序列到序列模型，可以考虑用其它模型方法吗？</span></h2>
+<div class="xiaoshujiang_element xsj_anchor">
+  <a name="16420e5a682e4bd95e79086e8a7a3e8af8de59091e9878fefbc9f_9" class="blank_anchor_name"></a><a id="16420e5a682e4bd95e79086e8a7a3e8af8de59091e9878fefbc9f_9" class="blank_anchor_id"></a><a name="164-如何理解词向量" class="blank_anchor_name"></a><a id="164-如何理解词向量" class="blank_anchor_id"></a>
+</div>
+<h2 class="xsj_heading_hash xsj_heading xsj_heading_h2" id="16420e5a682e4bd95e79086e8a7a3e8af8de59091e9878fefbc9f_9"><span class="xsj_heading_content">16.4 如何理解词向量？</span></h2>
+<div class="xiaoshujiang_element xsj_anchor">
+  <a name="16520e8af8de59091e9878fe593aae5aeb6e5a5bdefbc9f_10" class="blank_anchor_name"></a><a id="16520e8af8de59091e9878fe593aae5aeb6e5a5bdefbc9f_10" class="blank_anchor_id"></a><a name="165-词向量哪家好" class="blank_anchor_name"></a><a id="165-词向量哪家好" class="blank_anchor_id"></a>
+</div>
+<h2 class="xsj_heading_hash xsj_heading xsj_heading_h2" id="16520e8af8de59091e9878fe593aae5aeb6e5a5bdefbc9f_10"><span class="xsj_heading_content">16.5 词向量哪家好？</span></h2>
+<div class="xiaoshujiang_element xsj_anchor">
+  <a name="16620e8a7a3e9878ae4b880e4b88be6b3a8e6848fe58a9be69cbae588b6e79a84e58e9fe79086efbc9f_11" class="blank_anchor_name"></a><a id="16620e8a7a3e9878ae4b880e4b88be6b3a8e6848fe58a9be69cbae588b6e79a84e58e9fe79086efbc9f_11" class="blank_anchor_id"></a><a name="166-解释一下注意力机制的原理" class="blank_anchor_name"></a><a id="166-解释一下注意力机制的原理" class="blank_anchor_id"></a>
+</div>
+<h2 class="xsj_heading_hash xsj_heading xsj_heading_h2" id="16620e8a7a3e9878ae4b880e4b88be6b3a8e6848fe58a9be69cbae588b6e79a84e58e9fe79086efbc9f_11"><span class="xsj_heading_content">16.6 解释一下注意力机制的原理？</span></h2>
+<div class="xiaoshujiang_element xsj_anchor">
+  <a name="16720e6b3a8e6848fe58a9be69cbae588b6e698afe4b88de698afe98082e794a8e4ba8ee68980e69c89e59cbae699afe591a2efbc9fe5ae83e79a84e9b281e6a392e680a7e5a682e4bd95efbc9f_12" class="blank_anchor_name"></a><a id="16720e6b3a8e6848fe58a9be69cbae588b6e698afe4b88de698afe98082e794a8e4ba8ee68980e69c89e59cbae699afe591a2efbc9fe5ae83e79a84e9b281e6a392e680a7e5a682e4bd95efbc9f_12" class="blank_anchor_id"></a><a name="167-注意力机制是不是适用于所有场景呢它的鲁棒性如何" class="blank_anchor_name"></a><a id="167-注意力机制是不是适用于所有场景呢它的鲁棒性如何" class="blank_anchor_id"></a>
+</div>
+<h2 class="xsj_heading_hash xsj_heading xsj_heading_h2" id="16720e6b3a8e6848fe58a9be69cbae588b6e698afe4b88de698afe98082e794a8e4ba8ee68980e69c89e59cbae699afe591a2efbc9fe5ae83e79a84e9b281e6a392e680a7e5a682e4bd95efbc9f_12"><span class="xsj_heading_content">16.7 注意力机制是不是适用于所有场景呢？它的鲁棒性如何？</span></h2>
+<div class="xiaoshujiang_element xsj_anchor">
+  <a name="16820e6808ee4b988e5b086e58e9fe69c89e79a84e6a8a1e59e8be58aa0e4b88ae6b3a8e6848fe58a9be69cbae588b6e591a2efbc9f_13" class="blank_anchor_name"></a><a id="16820e6808ee4b988e5b086e58e9fe69c89e79a84e6a8a1e59e8be58aa0e4b88ae6b3a8e6848fe58a9be69cbae588b6e591a2efbc9f_13" class="blank_anchor_id"></a><a name="168-怎么将原有的模型加上注意力机制呢" class="blank_anchor_name"></a><a id="168-怎么将原有的模型加上注意力机制呢" class="blank_anchor_id"></a>
+</div>
+<h2 class="xsj_heading_hash xsj_heading xsj_heading_h2" id="16820e6808ee4b988e5b086e58e9fe69c89e79a84e6a8a1e59e8be58aa0e4b88ae6b3a8e6848fe58a9be69cbae588b6e591a2efbc9f_13"><span class="xsj_heading_content">16.8 怎么将原有的模型加上注意力机制呢？</span></h2>
+<div class="xiaoshujiang_element xsj_anchor">
+  <a name="16920e9809ae4bf97e59cb0e8a7a3e9878ae4b880e4b88be8af8de6b395e58886e69e90e698afe4bb80e4b988efbc9fe69c89e4bb80e4b988e5ba94e794a8e59cbae699afefbc9f_14" class="blank_anchor_name"></a><a id="16920e9809ae4bf97e59cb0e8a7a3e9878ae4b880e4b88be8af8de6b395e58886e69e90e698afe4bb80e4b988efbc9fe69c89e4bb80e4b988e5ba94e794a8e59cbae699afefbc9f_14" class="blank_anchor_id"></a><a name="169-通俗地解释一下词法分析是什么有什么应用场景" class="blank_anchor_name"></a><a id="169-通俗地解释一下词法分析是什么有什么应用场景" class="blank_anchor_id"></a>
+</div>
+<h2 class="xsj_heading_hash xsj_heading xsj_heading_h2" id="16920e9809ae4bf97e59cb0e8a7a3e9878ae4b880e4b88be8af8de6b395e58886e69e90e698afe4bb80e4b988efbc9fe69c89e4bb80e4b988e5ba94e794a8e59cbae699afefbc9f_14"><span class="xsj_heading_content">16.9 通俗地解释一下词法分析是什么？有什么应用场景？</span></h2>
+<div class="xiaoshujiang_element xsj_anchor">
+  <a name="161020e6b7b1e5baa6e5ada6e4b9a0e4b8ade79a84e8af8de6b395e58886e69e90e69c89e593aae4ba9be5b8b8e8a781e6a8a1e59e8be591a2efbc9f_15" class="blank_anchor_name"></a><a id="161020e6b7b1e5baa6e5ada6e4b9a0e4b8ade79a84e8af8de6b395e58886e69e90e69c89e593aae4ba9be5b8b8e8a781e6a8a1e59e8be591a2efbc9f_15" class="blank_anchor_id"></a><a name="1610-深度学习中的词法分析有哪些常见模型呢" class="blank_anchor_name"></a><a id="1610-深度学习中的词法分析有哪些常见模型呢" class="blank_anchor_id"></a>
+</div>
+<h2 class="xsj_heading_hash xsj_heading xsj_heading_h2" id="161020e6b7b1e5baa6e5ada6e4b9a0e4b8ade79a84e8af8de6b395e58886e69e90e69c89e593aae4ba9be5b8b8e8a781e6a8a1e59e8be591a2efbc9f_15"><span class="xsj_heading_content">16.10 深度学习中的词法分析有哪些常见模型呢？</span></h2>
+<div class="xiaoshujiang_element xsj_anchor">
+  <a name="161120e9809ae4bf97e59cb0e8a7a3e9878ae4b880e4b88be79fa5e8af86e59bbee8b0b1e698afe4bb80e4b988efbc9fe69c89e4bb80e4b988e5ba94e794a8e59cbae699afefbc9f_16" class="blank_anchor_name"></a><a id="161120e9809ae4bf97e59cb0e8a7a3e9878ae4b880e4b88be79fa5e8af86e59bbee8b0b1e698afe4bb80e4b988efbc9fe69c89e4bb80e4b988e5ba94e794a8e59cbae699afefbc9f_16" class="blank_anchor_id"></a><a name="1611-通俗地解释一下知识图谱是什么有什么应用场景" class="blank_anchor_name"></a><a id="1611-通俗地解释一下知识图谱是什么有什么应用场景" class="blank_anchor_id"></a>
+</div>
+<h2 class="xsj_heading_hash xsj_heading xsj_heading_h2" id="161120e9809ae4bf97e59cb0e8a7a3e9878ae4b880e4b88be79fa5e8af86e59bbee8b0b1e698afe4bb80e4b988efbc9fe69c89e4bb80e4b988e5ba94e794a8e59cbae699afefbc9f_16"><span class="xsj_heading_content">16.11 通俗地解释一下知识图谱是什么？有什么应用场景？</span></h2>
+<div class="xiaoshujiang_element xsj_anchor">
+  <a name="161220e6b7b1e5baa6e5ada6e4b9a0e4b8ade79a84e79fa5e8af86e59bbee8b0b1e69c89e593aae4ba9be5b8b8e8a781e6a8a1e59e8be591a2efbc9f_17" class="blank_anchor_name"></a><a id="161220e6b7b1e5baa6e5ada6e4b9a0e4b8ade79a84e79fa5e8af86e59bbee8b0b1e69c89e593aae4ba9be5b8b8e8a781e6a8a1e59e8be591a2efbc9f_17" class="blank_anchor_id"></a><a name="1612-深度学习中的知识图谱有哪些常见模型呢" class="blank_anchor_name"></a><a id="1612-深度学习中的知识图谱有哪些常见模型呢" class="blank_anchor_id"></a>
+</div>
+<h2 class="xsj_heading_hash xsj_heading xsj_heading_h2" id="161220e6b7b1e5baa6e5ada6e4b9a0e4b8ade79a84e79fa5e8af86e59bbee8b0b1e69c89e593aae4ba9be5b8b8e8a781e6a8a1e59e8be591a2efbc9f_17"><span class="xsj_heading_content">16.12 深度学习中的知识图谱有哪些常见模型呢？</span></h2>
+<div class="xiaoshujiang_element xsj_anchor">
+  <a name="161320e6b7b1e5baa6e5ada6e4b9a0e4b8ade79a84e69cbae599a8e7bfbbe8af91e69c89e593aae4ba9be5b8b8e8a781e6a8a1e59e8be591a2efbc9f_18" class="blank_anchor_name"></a><a id="161320e6b7b1e5baa6e5ada6e4b9a0e4b8ade79a84e69cbae599a8e7bfbbe8af91e69c89e593aae4ba9be5b8b8e8a781e6a8a1e59e8be591a2efbc9f_18" class="blank_anchor_id"></a><a name="1613-深度学习中的机器翻译有哪些常见模型呢" class="blank_anchor_name"></a><a id="1613-深度学习中的机器翻译有哪些常见模型呢" class="blank_anchor_id"></a>
+</div>
+<h2 class="xsj_heading_hash xsj_heading xsj_heading_h2" id="161320e6b7b1e5baa6e5ada6e4b9a0e4b8ade79a84e69cbae599a8e7bfbbe8af91e69c89e593aae4ba9be5b8b8e8a781e6a8a1e59e8be591a2efbc9f_18"><span class="xsj_heading_content">16.13 深度学习中的机器翻译有哪些常见模型呢？</span></h2>
+<div class="xiaoshujiang_element xsj_anchor">
+  <a name="161420e69cbae599a8e7bfbbe8af91e79a84e9809ae4bf97e5ae9ee78eb0e4bba5e58f8ae983a8e7bdb2e8bf87e7a88be698afe6808ee6a0b7e79a84e591a2efbc9f_19" class="blank_anchor_name"></a><a id="161420e69cbae599a8e7bfbbe8af91e79a84e9809ae4bf97e5ae9ee78eb0e4bba5e58f8ae983a8e7bdb2e8bf87e7a88be698afe6808ee6a0b7e79a84e591a2efbc9f_19" class="blank_anchor_id"></a><a name="1614-机器翻译的通俗实现以及部署过程是怎样的呢" class="blank_anchor_name"></a><a id="1614-机器翻译的通俗实现以及部署过程是怎样的呢" class="blank_anchor_id"></a>
+</div>
+<h2 class="xsj_heading_hash xsj_heading xsj_heading_h2" id="161420e69cbae599a8e7bfbbe8af91e79a84e9809ae4bf97e5ae9ee78eb0e4bba5e58f8ae983a8e7bdb2e8bf87e7a88be698afe6808ee6a0b7e79a84e591a2efbc9f_19"><span class="xsj_heading_content">16.14 机器翻译的通俗实现以及部署过程是怎样的呢？</span></h2>
+<div class="xiaoshujiang_element xsj_anchor">
+  <a name="161520e9809ae4bf97e59cb0e8a7a3e9878ae4b880e4b88be69687e69cace68385e6849fe58886e69e90e698afe4bb80e4b988efbc9fe5b8b8e8a781e79a84e5ba94e794a8e59cbae699afe698afefbc9f_20" class="blank_anchor_name"></a><a id="161520e9809ae4bf97e59cb0e8a7a3e9878ae4b880e4b88be69687e69cace68385e6849fe58886e69e90e698afe4bb80e4b988efbc9fe5b8b8e8a781e79a84e5ba94e794a8e59cbae699afe698afefbc9f_20" class="blank_anchor_id"></a><a name="1615-通俗地解释一下文本情感分析是什么常见的应用场景是" class="blank_anchor_name"></a><a id="1615-通俗地解释一下文本情感分析是什么常见的应用场景是" class="blank_anchor_id"></a>
+</div>
+<h2 class="xsj_heading_hash xsj_heading xsj_heading_h2" id="161520e9809ae4bf97e59cb0e8a7a3e9878ae4b880e4b88be69687e69cace68385e6849fe58886e69e90e698afe4bb80e4b988efbc9fe5b8b8e8a781e79a84e5ba94e794a8e59cbae699afe698afefbc9f_20"><span class="xsj_heading_content">16.15 通俗地解释一下文本情感分析是什么？常见的应用场景是？</span></h2>
+<div class="xiaoshujiang_element xsj_anchor">
+  <a name="161620e69c80e5b8b8e794a8e79a84e68385e6849fe58886e69e90e6a8a1e59e8be698afe4bb80e4b988e591a2efbc9fe5a682e4bd95e5bfabe9809fe983a8e7bdb2e591a2efbc9f_21" class="blank_anchor_name"></a><a id="161620e69c80e5b8b8e794a8e79a84e68385e6849fe58886e69e90e6a8a1e59e8be698afe4bb80e4b988e591a2efbc9fe5a682e4bd95e5bfabe9809fe983a8e7bdb2e591a2efbc9f_21" class="blank_anchor_id"></a><a name="1616-最常用的情感分析模型是什么呢如何快速部署呢" class="blank_anchor_name"></a><a id="1616-最常用的情感分析模型是什么呢如何快速部署呢" class="blank_anchor_id"></a>
+</div>
+<h2 class="xsj_heading_hash xsj_heading xsj_heading_h2" id="161620e69c80e5b8b8e794a8e79a84e68385e6849fe58886e69e90e6a8a1e59e8be698afe4bb80e4b988e591a2efbc9fe5a682e4bd95e5bfabe9809fe983a8e7bdb2e591a2efbc9f_21"><span class="xsj_heading_content">16.16 最常用的情感分析模型是什么呢？如何快速部署呢？</span></h2>
+<div class="xiaoshujiang_element xsj_anchor">
+  <a name="161720e9809ae4bf97e59cb0e8a7a3e9878ae4b880e4b88be997aee7ad94e7b3bbe7bb9fefbc9fe5ae83e6b6b5e79b96e593aae4ba9be9a286e59f9fefbc9fe5b8b8e8a781e79a84e5ba94e794a8e59cbae699afe698afefbc9f_22" class="blank_anchor_name"></a><a id="161720e9809ae4bf97e59cb0e8a7a3e9878ae4b880e4b88be997aee7ad94e7b3bbe7bb9fefbc9fe5ae83e6b6b5e79b96e593aae4ba9be9a286e59f9fefbc9fe5b8b8e8a781e79a84e5ba94e794a8e59cbae699afe698afefbc9f_22" class="blank_anchor_id"></a><a name="1617-通俗地解释一下问答系统它涵盖哪些领域常见的应用场景是" class="blank_anchor_name"></a><a id="1617-通俗地解释一下问答系统它涵盖哪些领域常见的应用场景是" class="blank_anchor_id"></a>
+</div>
+<h2 class="xsj_heading_hash xsj_heading xsj_heading_h2" id="161720e9809ae4bf97e59cb0e8a7a3e9878ae4b880e4b88be997aee7ad94e7b3bbe7bb9fefbc9fe5ae83e6b6b5e79b96e593aae4ba9be9a286e59f9fefbc9fe5b8b8e8a781e79a84e5ba94e794a8e59cbae699afe698afefbc9f_22"><span class="xsj_heading_content">16.17 通俗地解释一下问答系统？它涵盖哪些领域？常见的应用场景是？</span></h2>
+<div class="xiaoshujiang_element xsj_anchor">
+  <a name="161820e5b8b8e8a781e79a84e997aee7ad94e7b3bbe7bb9fe6a8a1e59e8be698afe4bb80e4b988efbc9fe5a682e4bd95e5bfabe9809fe983a8e7bdb2e591a2efbc9f_23" class="blank_anchor_name"></a><a id="161820e5b8b8e8a781e79a84e997aee7ad94e7b3bbe7bb9fe6a8a1e59e8be698afe4bb80e4b988efbc9fe5a682e4bd95e5bfabe9809fe983a8e7bdb2e591a2efbc9f_23" class="blank_anchor_id"></a><a name="1618-常见的问答系统模型是什么如何快速部署呢" class="blank_anchor_name"></a><a id="1618-常见的问答系统模型是什么如何快速部署呢" class="blank_anchor_id"></a>
+</div>
+<h2 class="xsj_heading_hash xsj_heading xsj_heading_h2" id="161820e5b8b8e8a781e79a84e997aee7ad94e7b3bbe7bb9fe6a8a1e59e8be698afe4bb80e4b988efbc9fe5a682e4bd95e5bfabe9809fe983a8e7bdb2e591a2efbc9f_23"><span class="xsj_heading_content">16.18 常见的问答系统模型是什么？如何快速部署呢？</span></h2>
+<div class="xiaoshujiang_element xsj_anchor">
+  <a name="161920e59bbee5838fe69687e5ad97e7949fe68890e698afe4bb80e4b988efbc9fe5ae83e79a84e68a80e69cafe58e9fe79086e698afe4bb80e4b988efbc9f_24" class="blank_anchor_name"></a><a id="161920e59bbee5838fe69687e5ad97e7949fe68890e698afe4bb80e4b988efbc9fe5ae83e79a84e68a80e69cafe58e9fe79086e698afe4bb80e4b988efbc9f_24" class="blank_anchor_id"></a><a name="1619-图像文字生成是什么它的技术原理是什么" class="blank_anchor_name"></a><a id="1619-图像文字生成是什么它的技术原理是什么" class="blank_anchor_id"></a>
+</div>
+<h2 class="xsj_heading_hash xsj_heading xsj_heading_h2" id="161920e59bbee5838fe69687e5ad97e7949fe68890e698afe4bb80e4b988efbc9fe5ae83e79a84e68a80e69cafe58e9fe79086e698afe4bb80e4b988efbc9f_24"><span class="xsj_heading_content">16.19 图像文字生成是什么？它的技术原理是什么？</span></h2>
+<div class="xiaoshujiang_element xsj_anchor">
+  <a name="162020e5b8b8e8a781e79a84e59bbee5838fe69687e5ad97e7949fe68890e6a8a1e59e8be698afe4bb80e4b988efbc9f_25" class="blank_anchor_name"></a><a id="162020e5b8b8e8a781e79a84e59bbee5838fe69687e5ad97e7949fe68890e6a8a1e59e8be698afe4bb80e4b988efbc9f_25" class="blank_anchor_id"></a><a name="1620-常见的图像文字生成模型是什么" class="blank_anchor_name"></a><a id="1620-常见的图像文字生成模型是什么" class="blank_anchor_id"></a>
+</div>
+<h2 class="xsj_heading_hash xsj_heading xsj_heading_h2" id="162020e5b8b8e8a781e79a84e59bbee5838fe69687e5ad97e7949fe68890e6a8a1e59e8be698afe4bb80e4b988efbc9f_25"><span class="xsj_heading_content">16.20 常见的图像文字生成模型是什么？</span></h2>
+<div class="xiaoshujiang_element xsj_anchor">
+  <a name="162120nlp20e79a84e697a0e79b91e79da3e5ada6e4b9a0e58f91e5b195e58aa8e68081e698afe6808ee6a0b7e79a84efbc9fe69c89e593aae4ba9be9a286e59f9fe59ca8e5b09de8af95e697a0e79b91e79da3e5ada6e4b9a0efbc9f_26" class="blank_anchor_name"></a><a id="162120nlp20e79a84e697a0e79b91e79da3e5ada6e4b9a0e58f91e5b195e58aa8e68081e698afe6808ee6a0b7e79a84efbc9fe69c89e593aae4ba9be9a286e59f9fe59ca8e5b09de8af95e697a0e79b91e79da3e5ada6e4b9a0efbc9f_26" class="blank_anchor_id"></a><a name="1621-nlp-的无监督学习发展动态是怎样的有哪些领域在尝试无监督学习" class="blank_anchor_name"></a><a id="1621-nlp-的无监督学习发展动态是怎样的有哪些领域在尝试无监督学习" class="blank_anchor_id"></a>
+</div>
+<h2 class="xsj_heading_hash xsj_heading xsj_heading_h2" id="162120nlp20e79a84e697a0e79b91e79da3e5ada6e4b9a0e58f91e5b195e58aa8e68081e698afe6808ee6a0b7e79a84efbc9fe69c89e593aae4ba9be9a286e59f9fe59ca8e5b09de8af95e697a0e79b91e79da3e5ada6e4b9a0efbc9f_26"><span class="xsj_heading_content">16.21 NLP 的无监督学习发展动态是怎样的？有哪些领域在尝试无监督学习？</span></h2>
+<div class="xiaoshujiang_element xsj_anchor">
+  <a name="162220nlp20e5928ce5bcbae58c96e5ada6e4b9a0e79a84e7bb93e59088e696b9e5bc8fe698afe6808ee6a0b7e79a84efbc9fe69c89e593aae4ba9be696b9e59091e59ca8e5b09de8af95e5bcbae58c96e5ada6e4b9a0efbc9f_27" class="blank_anchor_name"></a><a id="162220nlp20e5928ce5bcbae58c96e5ada6e4b9a0e79a84e7bb93e59088e696b9e5bc8fe698afe6808ee6a0b7e79a84efbc9fe69c89e593aae4ba9be696b9e59091e59ca8e5b09de8af95e5bcbae58c96e5ada6e4b9a0efbc9f_27" class="blank_anchor_id"></a><a name="1622-nlp-和强化学习的结合方式是怎样的有哪些方向在尝试强化学习" class="blank_anchor_name"></a><a id="1622-nlp-和强化学习的结合方式是怎样的有哪些方向在尝试强化学习" class="blank_anchor_id"></a>
+</div>
+<h2 class="xsj_heading_hash xsj_heading xsj_heading_h2" id="162220nlp20e5928ce5bcbae58c96e5ada6e4b9a0e79a84e7bb93e59088e696b9e5bc8fe698afe6808ee6a0b7e79a84efbc9fe69c89e593aae4ba9be696b9e59091e59ca8e5b09de8af95e5bcbae58c96e5ada6e4b9a0efbc9f_27"><span class="xsj_heading_content">16.22 NLP 和强化学习的结合方式是怎样的？有哪些方向在尝试强化学习？</span></h2>
+<div class="xiaoshujiang_element xsj_anchor">
+  <a name="162320nlp20e5928ce58583e5ada6e4b9a0efbc9fe58583e5ada6e4b9a0e5a682e4bd95e883bde5a49fe5928c20nlp20e7bb93e59088e8b5b7e69da5efbc9f_28" class="blank_anchor_name"></a><a id="162320nlp20e5928ce58583e5ada6e4b9a0efbc9fe58583e5ada6e4b9a0e5a682e4bd95e883bde5a49fe5928c20nlp20e7bb93e59088e8b5b7e69da5efbc9f_28" class="blank_anchor_id"></a><a name="1623-nlp-和元学习元学习如何能够和-nlp-结合起来" class="blank_anchor_name"></a><a id="1623-nlp-和元学习元学习如何能够和-nlp-结合起来" class="blank_anchor_id"></a>
+</div>
+<h2 class="xsj_heading_hash xsj_heading xsj_heading_h2" id="162320nlp20e5928ce58583e5ada6e4b9a0efbc9fe58583e5ada6e4b9a0e5a682e4bd95e883bde5a49fe5928c20nlp20e7bb93e59088e8b5b7e69da5efbc9f_28"><span class="xsj_heading_content">16.23 NLP 和元学习？元学习如何能够和 NLP 结合起来？</span></h2>
+<div class="xiaoshujiang_element xsj_anchor">
+  <a name="162420e883bde8afb4e4b880e4b88be59084e887aae9a286e59f9fe69c80e5b8b8e794a8e4b894e5b8b8e8a781e79a84e59fbae58786e6a8a1e59e8be69c89e593aae4ba9be59097efbc9f_29" class="blank_anchor_name"></a><a id="162420e883bde8afb4e4b880e4b88be59084e887aae9a286e59f9fe69c80e5b8b8e794a8e4b894e5b8b8e8a781e79a84e59fbae58786e6a8a1e59e8be69c89e593aae4ba9be59097efbc9f_29" class="blank_anchor_id"></a><a name="1624-能说一下各自领域最常用且常见的基准模型有哪些吗" class="blank_anchor_name"></a><a id="1624-能说一下各自领域最常用且常见的基准模型有哪些吗" class="blank_anchor_id"></a>
+</div>
+<h2 class="xsj_heading_hash xsj_heading xsj_heading_h2" id="162420e883bde8afb4e4b880e4b88be59084e887aae9a286e59f9fe69c80e5b8b8e794a8e4b894e5b8b8e8a781e79a84e59fbae58786e6a8a1e59e8be69c89e593aae4ba9be59097efbc9f_29"><span class="xsj_heading_content">16.24 能说一下各自领域最常用且常见的基准模型有哪些吗？</span></h2>
+</div>
+
+</div></div>
+</body></html>
+
