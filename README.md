@@ -42,10 +42,10 @@
 
 # 百度网盘下载
 可能有些人clone网速过慢，或者中途中断。由于都是固定文本不能够进行二次修改，所以也可以不采取clone的方式。因此我把该文档资源上传到了百度云，需要学习的同鞋也可以直接去百度云进行下载：
-```python
-链接：https://pan.baidu.com/s/1nK8HytJ-cdy7Nu49vYbxVA 
+
+>链接：https://pan.baidu.com/s/1nK8HytJ-cdy7Nu49vYbxVA 
 提取码：eivv 
 复制这段内容后打开百度网盘手机App，操作更方便哦
-```
+
 
 **声明：仅用于个人学习，请勿转载！！！**
